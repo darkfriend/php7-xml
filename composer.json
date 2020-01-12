@@ -1,0 +1,21 @@
+{
+    "name": "darkfriend/php7-xml",
+    "type": "library",
+    "description": "PHP7 scripts helper for xml",
+    "keywords": ["dev","xml","helper","darkfriend","development","php7","php"],
+    "homepage": "https://github.com/darkfriend/php7-xml",
+    "authors": [
+        {
+            "name": "darkfriend",
+            "email": "hi@darkfriend.ru"
+        }
+    ],
+    "require": {
+        "php":">=7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "darkfriend\\helpers\\": "src/"
+        }
+    }
+}
