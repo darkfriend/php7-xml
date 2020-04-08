@@ -1,5 +1,7 @@
 # PHP7 XML helper
 
+``composer require darkfriend/php7-xml``
+
 * Array to XML (``` XML::encode() ```)
 * XML to Array (``` XML::decode() ```)
 
