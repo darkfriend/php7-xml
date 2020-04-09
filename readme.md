@@ -93,3 +93,90 @@ Array
         )
 )
 ```
+
+### Custom \<?xml \?> attributes
+
+```php
+$array = array(
+    'bar' => 'value bar',
+    'foo' => 'value foo',
+    'der' => array(
+        '@cdata' => 'this is long text',
+        '@attributes' => array(
+            'at1' => 'at1val',
+            'at2' => 'at2val',
+        ),
+    ),
+    'qpo' => array(
+        'sub1' => array('sub2'=>'val')
+    )
+);
+
+echo \darkfriend\helpers\Xml::encode(
+    $array,
+    [
+        'header' => [
+            'version' => 1.0,
+            'encoding' => 'utf-8',
+        ],
+    ]
+);
+```
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <bar>value bar</bar>
+    <foo>value foo</foo>
+    <der at1="at1val" at2="at2val"><![CDATA[this is long text]]></der>
+    <qpo>
+        <sub1>
+            <sub2>val</sub2>
+        </sub1>
+    </qpo>
+</root>
+```
+
+### Custom root element
+
+```php
+$array = array(
+    'bar' => 'value bar',
+    'foo' => 'value foo',
+    'der' => array(
+        '@cdata' => 'this is long text',
+        '@attributes' => array(
+            'at1' => 'at1val',
+            'at2' => 'at2val',
+        ),
+    ),
+    'qpo' => array(
+        'sub1' => array('sub2'=>'val')
+    )
+);
+
+echo \darkfriend\helpers\Xml::encode(
+    $array,
+    [
+        'root' => '<response/>',
+        'header' => [
+            'version' => 1.0,
+            'encoding' => 'utf-8',
+        ],
+    ]
+);
+```
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<response>
+    <bar>value bar</bar>
+    <foo>value foo</foo>
+    <der at1="at1val" at2="at2val"><![CDATA[this is long text]]></der>
+    <qpo>
+        <sub1>
+            <sub2>val</sub2>
+        </sub1>
+    </qpo>
+</response>
+```

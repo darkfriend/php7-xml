@@ -18,6 +18,7 @@ class Xml
      * @param array $params = [
      *     'root' => '<root/>',
      *     'exception' => false,
+     *     'header' => false,
      * ]
      * @return string
      * @throws XmlException
@@ -29,8 +30,13 @@ class Xml
         if(empty($params['root'])) {
             $params['root'] = self::$root;
         }
+        if(!isset($params['header'])) {
+            $params['header'] = false;
+        }
 
-        $xml = new SimpleXMLElement($params['root']);
+        $xml = new SimpleXMLElement(
+            self::getHeader($params['header']).$params['root']
+        );
         $xml = self::generateXml($xml, $data);
 
         if(!static::checkException($params)) {
@@ -38,6 +44,34 @@ class Xml
         }
 
         return $xml->asXML();
+    }
+
+    /**
+     * @param array $params header attributes
+     * @return string
+     * @since 1.0.1
+     */
+    public static function getHeader($params = [])
+    {
+        if(!$params) return '';
+        if(!is_array($params)) {
+            $params = [];
+        }
+
+        $params = array_merge(
+            [
+                'version' => '1.0',
+                'encoding' => 'utf-8',
+            ],
+            $params
+        );
+
+        $attr = [];
+        foreach ($params as $attrKey=>$attrVal) {
+            $attr[] = "$attrKey=\"$attrVal\"";
+        }
+
+        return '<?xml '.implode(' ', $attr).'?>';
     }
 
     /**
