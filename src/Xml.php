@@ -225,7 +225,7 @@ class Xml
                     $subRowItem = self::convertSimpleXmlItem($childItem);
                     $children = $childItem->children();
                     if(!empty((array)$children)) {
-                        $subRowItem['value'] = self::convertSimpleXmlItem($children);
+                        $subRowItem['value'] = self::convertSimpleXml($children);
                     }
                     if(empty($rowItem['value'])) {
                         $rowItem['value'] = [];

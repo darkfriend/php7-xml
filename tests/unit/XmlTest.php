@@ -47,7 +47,24 @@ multiline',
                     ],
                 ],
             ],
-        ]
+        ],
+        'mlp' => [
+            [
+                'value' => [
+                    'sub1' => [
+                        [
+                            'value' => [
+                                'sub2' => [
+                                    [
+                                        'value' => 'val'
+                                    ]
+                                ]
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+        ],
     ];
 
     protected $resultArray = [
@@ -101,7 +118,24 @@ multiline',
                     ],
                 ],
             ]
-        ]
+        ],
+        'mlp' => [
+            [
+                'value' => [
+                    'sub1' => [
+                        [
+                            'value' => [
+                                'sub2' => [
+                                    [
+                                        'value' => 'val'
+                                    ]
+                                ]
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+        ],
     ];
 
     protected $xml = '<?xml version="1.0" encoding="utf-8"?>
@@ -117,20 +151,15 @@ multiline]]></der><qpo channel="11"><sub-value channel="11">val</sub-value><sub-
     {
     }
 
-//    public function testEncodeXml()
-//    {
-//
-//        $xml = \darkfriend\helpers\Xml::encode($this->encodeArray);
-//
-//        $this->assertEquals($xml, $this->xml);
-//    }
+    public function testEncodeXml()
+    {
+        $xml = \darkfriend\helpers\Xml::encode($this->encodeArray);
+
+        $this->assertEquals($xml, $this->xml);
+    }
 
     public function testDecodeXml()
     {
-//        var_dump($this->resultArray);
-        var_dump(\darkfriend\helpers\Xml::decode($this->xml));
-        die();
-
         $this->assertTrue(
             \darkfriend\helpers\Xml::decode($this->xml) === $this->resultArray
         );
