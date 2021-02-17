@@ -1,21 +1,40 @@
 {
     "name": "darkfriend/php7-xml",
     "type": "library",
-    "description": "PHP7 scripts helper for xml",
-    "keywords": ["dev","xml","helper","darkfriend","development","php7","php"],
+    "description": "PHP7 library for encode/decode xml",
+    "license": "MIT",
+    "keywords": [
+        "dev",
+        "xml",
+        "helper",
+        "xml encode",
+        "xml decode",
+        "xml to array",
+        "array to xml",
+        "darkfriend",
+        "development",
+        "php7",
+        "php"
+    ],
     "homepage": "https://github.com/darkfriend/php7-xml",
     "authors": [
         {
             "name": "darkfriend",
-            "email": "hi@darkfriend.ru"
+            "email": "hi@darkfriend.ru",
+            "homepage": "https://darkfriend.ru"
         }
     ],
     "require": {
-        "php":">=7.0"
+        "php": ">=7.0"
     },
     "autoload": {
         "psr-4": {
             "darkfriend\\helpers\\": "src/"
         }
+    },
+    "require-dev": {
+        "codeception/codeception": "^4.1",
+        "codeception/module-phpbrowser": "^1.0.0",
+        "codeception/module-asserts": "^1.0.0"
     }
 }

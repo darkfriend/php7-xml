@@ -4,7 +4,7 @@ namespace darkfriend\helpers;
 
 /**
  * Class SimpleXMLElement
- * @package darkfriend\helpers
+ * @package darkfriend\php7-xml
  * @author darkfriend <hi@darkfriend.ru>
  * @version 1.0.0
  */
