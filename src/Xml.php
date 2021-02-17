@@ -224,8 +224,11 @@ class Xml
                 foreach ($item->children() as $childrenKey => $childItem) {
                     $subRowItem = self::convertSimpleXmlItem($childItem);
                     $children = $childItem->children();
-                    if(!empty($children) && \is_array($children)) {
-                        $subRowItem['value'] = self::convertSimpleXml($children);
+                    if(!empty((array)$children)) {
+                        $subRowItem['value'] = self::convertSimpleXmlItem($children);
+                    }
+                    if(empty($rowItem['value'])) {
+                        $rowItem['value'] = [];
                     }
                     $rowItem['value'][$childrenKey][] = $subRowItem;
                 }
