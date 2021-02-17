@@ -93,8 +93,6 @@ class Xml
         /** @var $xml SimpleXMLElement */
         if(\is_array($data)) {
             foreach ($data as $key => $item) {
-//                var_dump($item); die();
-//                if($item['value'])
                 self::addChild($xml, $key, $item, $params);
             }
         } else {
