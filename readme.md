@@ -308,7 +308,7 @@ array(5) {
 }
 ```
 
-### Custom \<?xml \?> attributes and custom <root>
+### Custom \<?xml \?> attributes and custom \<root\>
 
 ```php
 $array = [
